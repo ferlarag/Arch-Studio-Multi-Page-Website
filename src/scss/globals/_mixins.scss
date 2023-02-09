@@ -1,4 +1,74 @@
 @use 'functions' as f;
+@use 'variables' as v;
+
+// ---- font sizes ----
+@mixin heading-xl{
+    color: black;
+    font-family: v.$font;
+    font-weight: 700;
+    font-size: f.toRem(250);
+    line-height: f.toRem(200);
+    letter-spacing: f.toRem(-5);
+
+    @include breakpoint('small'){
+        // font-weight: 500;
+        // font-size: f.toRem(150);
+        // line-height: f.toRem(200);
+        // letter-spacing: f.toRem(3);
+    }
+}
+
+@mixin heading-l{
+    color: black;
+    font-family: v.$font;
+    font-weight: 700;
+    font-size: f.toRem(48);
+    line-height: f.toRem(48);
+    letter-spacing: f.toRem(-1.2);
+    
+    @include breakpoint('small'){
+        font-size: f.toRem(96);
+        line-height: f.toRem(80);
+        letter-spacing: f.toRem(-2);
+    }
+
+    // font-size: f.toRem(96);
+    //     line-height: f.toRem(80);
+    //     letter-spacing: f.toRem(-2);
+}
+
+@mixin heading-m{
+    color: black;
+    font-family: v.$font;
+    font-weight: 700;
+    font-size: f.toRem(48);
+    line-height: f.toRem(52);
+    letter-spacing: f.toRem(-1.71);
+
+    @include breakpoint('small'){
+        font-size: f.toRem(72);
+        line-height: f.toRem(64);
+        letter-spacing: f.toRem(-2);
+    }
+}
+
+@mixin heading-s{
+    color: black;
+    font-family: v.$font;
+    font-weight: 700;
+    font-size: f.toRem(32);
+    line-height: f.toRem(40);
+    letter-spacing: f.toRem(0);
+}
+
+@mixin body{
+    color: black;
+    font-family: v.$font;
+    font-weight: 500;
+    font-size: f.toRem(18);
+    line-height: f.toRem(24);
+    letter-spacing: f.toRem(0);
+}
 
 // ---- media queries ----
 //700px, 900px, 1440px

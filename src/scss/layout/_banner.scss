@@ -1,0 +1,80 @@
+@use '../globals/functions' as f;
+@use '../globals/variables' as v;
+@use '../globals/mixins' as m;
+
+.banner{
+    display: grid;
+    height: f.toRem(560);
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    background: linear-gradient(0deg, rgb(0, 0, 0,0.5), rgb(0, 0, 0,0.75)), url(/src/assets/home/desktop/image-hero-paramour.jpg);
+    background-position: center center;
+    background-size: cover;
+
+    @include m.breakpoint('small'){
+        align-items: center;
+        height: f.toRem(720);
+        margin: 0 f.toRem(98);
+    }
+    
+    @include m.breakpoint('xlarge'){
+        width: f.toRem(1110);
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    @include m.breakpoint('xlarge'){
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    &__content{
+        grid-column: 2/3;
+        grid-row: 2/3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__heading{
+        color: white;
+        @include m.breakpoint('xlarge'){
+            max-width: f.toRem(544);
+        }
+    }
+
+    &__para{
+        margin-top: f.toRem(11);
+        color: white;
+        @include m.breakpoint('xlarge'){
+            max-width: f.toRem(445);
+        }
+    }
+
+    &__btn{
+        margin-top: auto;
+        @include m.breakpoint('small'){
+            margin-top: f.toRem(41);
+        }
+    }
+
+    &__back{
+        
+    }
+
+    &__select-btn{
+        width: f.toRem(80);
+        height: f.toRem(80);
+    }
+
+    &__select{
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: f.toRem(-80);
+        @include m.breakpoint('xlarge'){
+            display: flex;
+        }
+        
+    }
+}

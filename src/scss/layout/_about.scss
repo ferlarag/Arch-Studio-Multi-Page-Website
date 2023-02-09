@@ -1,0 +1,43 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+.about{
+    display: grid;
+    height: f.toRem(560);
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    background: linear-gradient(0deg, rgb(0, 0, 0,0.5), rgb(0, 0, 0,0.75)), url(/src/assets/home/desktop/image-small-team.jpg);
+    background-position: center center;
+    background-size: cover;
+    @include m.breakpoint('small'){
+        margin-left: f.toRem(98);
+        margin-right: f.toRem(98);
+    }
+    @include m.breakpoint('xlarge'){
+        margin-left: f.toRem(0);
+        margin-right: f.toRem(0);
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    &__content{
+        grid-column: 2/3;
+        grid-row: 2/3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    &__heading{
+        color: white;
+        @include m.breakpoint('small'){
+            max-width: f.toRem(445);
+            font-size: f.toRem(72);
+        }
+    }
+
+    &__btn{
+        margin-top: f.toRem(23);
+    }
+}

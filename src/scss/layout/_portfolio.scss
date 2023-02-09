@@ -1,0 +1,174 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+.portfolio{
+    margin: 0 auto;
+    margin-top: f.toRem(152);
+    width: 100%;
+
+    &__grid{
+        padding: 0 f.toRem(32);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: f.toRem(24);
+
+        @include m.breakpoint('small'){
+            padding: 0;
+            margin: 0 f.toRem(96);
+            grid-template-columns: 1fr;
+        }
+
+        @include m.breakpoint('xlarge'){
+            max-width: f.toRem(1110);
+            padding: 0;
+            margin: 0;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__item{
+        display: grid;
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-rows: 1fr 8fr 1fr;
+        align-items: end;
+        background-size: cover;
+        height: f.toRem(240);
+        @include m.breakpoint('small'){
+            grid-template-columns: f.toRem(40) 1fr;
+            grid-template-rows: 1fr f.toRem(40);
+        }
+
+        @include m.breakpoint('xlarge'){
+            height: f.toRem(560);
+        }
+
+        &-content{
+            grid-column: 2/3;
+            grid-row: 2/3;
+            @include m.breakpoint('small'){
+                grid-column: 2/3;
+                grid-row: 1/2;
+            }
+        }
+
+        &-heading{
+            color: white;
+        }
+
+        &-para{
+            color: white;
+        }
+    }
+}
+
+.portfolio{
+    &-1{
+        background-image: url(/src/assets/portfolio/mobile/image-seraph.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-seraph.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-seraph.jpg);
+        }
+    }
+    &-2{
+        background-image: url(/src/assets/portfolio/mobile/image-eebox.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-eebox.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-eebox.jpg);
+        }
+    }
+    &-3{
+        background-image: url(/src/assets/portfolio/mobile/image-federal.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-federal.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-federal.jpg);
+        }
+    }
+    &-4{
+        background-image: url(/src/assets/portfolio/mobile/image-del-sol.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-del-sol.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-del-sol.jpg);
+        }
+    }
+    &-5{
+        background-image: url(/src/assets/portfolio/mobile/image-prototype.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-prototype.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-prototype.jpg);
+        }
+    }
+    &-6{
+        background-image: url(/src/assets/portfolio/mobile/image-228b.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-228b.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-228b.jpg);
+        }
+    }
+    &-7{
+        background-image: url(/src/assets/portfolio/mobile/image-edelweiss.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-edelweiss.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-edelweiss.jpg);
+        }
+    }
+    &-8{
+        background-image: url(/src/assets/portfolio/mobile/image-netcry.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-netcry.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-netcry.jpg);
+        }
+    }
+    &-9{
+        background-image: url(/src/assets/portfolio/mobile/image-hypers.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-hypers.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-hypers.jpg);
+        }
+    }
+    &-10{
+        background-image: url(/src/assets/portfolio/mobile/image-sxiv.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-sxiv.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-sxiv.jpg);
+        }
+    }
+    &-11{
+        background-image: url(/src/assets/portfolio/mobile/image-trinity.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-trinity.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-trinity.jpg);
+        }
+    }
+    &-12{
+        background-image: url(/src/assets/portfolio/mobile/image-paramour.jpg);
+        @include m.breakpoint('small'){
+            background-image: url(/src/assets/portfolio/tablet/image-paramour.jpg);
+        }
+        @include m.breakpoint('xlarge'){
+            background-image: url(/src/assets/portfolio/desktop/image-paramour.jpg);
+        }
+    }
+}

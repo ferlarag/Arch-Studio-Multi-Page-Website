@@ -1,0 +1,61 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+
+main{
+    margin-top: f.toRem(96);
+    @include m.breakpoint('small'){
+        max-width: f.toRem(1110);
+        // margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: f.toRem(152);
+    }
+}
+
+footer{
+    @include m.breakpoint('xlarge'){
+        max-width: f.toRem(1110);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.banner{
+    margin-bottom: f.toRem(72);
+}
+
+.line{
+    width: f.toRem(65);
+    height: f.toRem(1);
+    background-color: v.$light-grey;
+    margin: 0 f.toRem(32);
+    @include m.breakpoint('small'){
+        display: none;
+    }
+
+}
+
+.welcome{
+    margin-top: f.toRem(69);
+    @include m.breakpoint('xlarge'){
+        margin-top: f.toRem(108);
+    }
+}
+
+.about{
+    margin-top: f.toRem(113);
+}
+
+.feat{
+    margin-top: f.toRem(73);
+    @include m.breakpoint('small'){
+        margin-top: f.toRem(200);
+    }
+    
+}
+
+.foo{
+    margin-top: f.toRem(72);
+}

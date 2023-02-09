@@ -1,0 +1,28 @@
+@use 'mixins' as m;
+@use 'variables' as v;
+
+h1{
+    @include m.heading-xl;
+    color: v.$very-light-grey;
+}
+
+h2{
+    @include m.heading-l;
+}
+
+h3{
+    @include m.heading-m;
+}
+
+h4{
+    @include m.heading-s;
+}
+
+body{
+    @include m.body();
+    color: v.$dark_grey
+}
+
+a, a:visited, a:active{
+    color: v.$very-dark-blue;
+}
