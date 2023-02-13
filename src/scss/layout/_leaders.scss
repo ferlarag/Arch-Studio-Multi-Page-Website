@@ -1,0 +1,42 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+.leaders{
+    display: flex;
+    flex-direction: column;
+    gap: f.toRem(55);
+    margin: 0 f.toRem(32);
+    margin-bottom: f.toRem(120);
+    @include m.breakpoint('small'){
+        margin: 0 f.toRem(96);
+        margin-bottom: f.toRem(239);
+    }
+    @include m.breakpoint('xlarge'){
+        margin: 0;
+        margin-bottom: f.toRem(159);
+        flex-direction: row;
+    }
+
+    &__header{
+        max-width: f.toRem(300);
+        @include m.breakpoint('xlarge'){
+            flex: 1;
+        }
+    }
+
+    &__grid{
+        display: grid;
+        grid-column: 1fr;
+        gap: f.toRem(79);
+
+        @include m.breakpoint('small'){
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: f.toRem(11);
+            grid-row-gap: f.toRem(103);
+        }
+        @include m.breakpoint('xlarge'){
+            flex: 1;
+        }
+    }
+}

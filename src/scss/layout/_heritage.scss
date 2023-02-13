@@ -1,0 +1,46 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+.heritage{
+    margin: f.toRem(96) f.toRem(32);
+    display: flex;
+    @include m.breakpoint('small'){
+        margin: f.toRem(96) f.toRem(96);
+    }
+
+    @include m.breakpoint('xlarge'){
+        margin: f.toRem(96) f.toRem(0);
+        gap: f.toRem(124);
+    }
+
+    &__text{
+        display: flex;
+        flex-direction: column;
+        @include m.breakpoint('xlarge'){
+            flex: 1;
+        }
+    }    
+
+    &__line{
+        width: f.toRem(65);
+        height: f.toRem(1);
+        background-color: v.$light-grey;
+    }
+
+    &__header{
+        margin-top: f.toRem(68);
+        margin-bottom: f.toRem(22);
+        @include m.breakpoint('small'){
+            max-width: f.toRem(300);
+        }
+    }
+
+    &__img{
+        display: none;
+        @include m.breakpoint('xlarge'){
+            display: block;
+            flex: 1;
+        }
+    }
+}

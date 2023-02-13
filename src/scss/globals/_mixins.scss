@@ -5,16 +5,20 @@
 @mixin heading-xl{
     color: black;
     font-family: v.$font;
-    font-weight: 700;
-    font-size: f.toRem(250);
+    font-weight:700;
+    font-size: f.toRem(150);
     line-height: f.toRem(200);
-    letter-spacing: f.toRem(-5);
+    letter-spacing: f.toRem(3);
 
     @include breakpoint('small'){
-        // font-weight: 500;
-        // font-size: f.toRem(150);
-        // line-height: f.toRem(200);
-        // letter-spacing: f.toRem(3);
+        // font-size: f.toRem(180);
+    }
+
+    @include breakpoint('xlarge'){
+        font-weight: 700;
+        font-size: f.toRem(250);
+        line-height: f.toRem(200);
+        letter-spacing: f.toRem(-5);
     }
 }
 
@@ -64,7 +68,7 @@
 @mixin body{
     color: black;
     font-family: v.$font;
-    font-weight: 500;
+    font-weight: 400;
     font-size: f.toRem(18);
     line-height: f.toRem(24);
     letter-spacing: f.toRem(0);

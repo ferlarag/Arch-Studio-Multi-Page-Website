@@ -1,0 +1,80 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+.details{
+    margin: f.toRem(96) f.toRem(32);
+    @include m.breakpoint('small'){
+        margin: f.toRem(96) f.toRem(96);
+    }
+
+    @include m.breakpoint('xlarge'){
+        margin: f.toRem(96) f.toRem(0);
+    }
+
+    &__line{
+        width: f.toRem(65);
+        height: f.toRem(1);
+        background-color: v.$light-grey;
+    }
+
+    &__content{
+        margin-top: f.toRem(73);
+        display: flex;
+        flex-direction: column;
+        gap: f.toRem(40);
+        @include m.breakpoint('xlarge'){
+            flex-direction: row;
+            gap: 0;
+        }
+    }
+
+    &__header{
+        @include m.breakpoint('xlarge'){
+            flex: 1;
+        }
+    }
+
+    &__item{
+        display: flex;
+        flex-direction: column;
+        gap: f.toRem(43);
+        @include m.breakpoint('small'){
+            flex-direction: row;
+        }
+        @include m.breakpoint('xlarge'){
+            flex-direction: column;
+            gap: f.toRem(59);
+            flex: 1;
+        }
+    }
+
+    &__text{
+        @include m.breakpoint('small'){
+            flex: 1;
+        }
+    }
+
+    &__first{
+        margin-bottom: f.toRem(14);
+        font-weight: bold;
+    }
+
+    &__btn{
+        display: flex;
+        gap: f.toRem(24);
+        align-items: center;
+        background-color: white;
+
+        @include m.breakpoint('small'){
+            flex: 1;
+            align-self: flex-end;
+            justify-content: flex-end;
+        }
+        @include m.breakpoint('xlarge'){
+            flex: 1;
+            align-self: flex-start;
+            justify-content: flex-start;
+        }
+    }
+}

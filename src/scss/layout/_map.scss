@@ -1,0 +1,18 @@
+@use '../globals/functions' as f;
+@use '../globals/mixins' as m;
+@use '../globals/variables' as v;
+
+.map{
+    margin-top: f.toRem(71);
+    height: f.toRem(367);
+    @include m.breakpoint('small'){
+        height: f.toRem(560);
+        margin-left: f.toRem(96);
+        margin-right: f.toRem(96);
+    }
+
+    @include m.breakpoint('xlarge'){
+        margin-left: f.toRem(0);
+        margin-right: f.toRem(0);
+    }
+}

@@ -12,42 +12,49 @@
         display: flex;
         justify-content: center;
         margin: 0;
+        background-color: white;
     }
 
     &__container{
-        display: grid;
+        position: relative;
+        // display: grid;
+        display: flex;
         width: 100vw;
-        height: 100vh;
-        grid-template-rows: f.toRem(32) f.toRem(32) f.toRem(32) f.toRem(235) 1fr;
-        grid-template-columns: f.toRem(32) 1fr f.toRem(32);
+        height: f.toRem(96);
+        // grid-template-rows: f.toRem(32) f.toRem(32) f.toRem(32) f.toRem(235) 1fr;
+        // grid-template-columns: f.toRem(32) 1fr f.toRem(32);
     
         @include m.breakpoint('small'){
+            display: grid;
+            margin: 0 f.toRem(96);
+            width: 100%;
             height: f.toRem(152);
-            grid-template-columns: f.toRem(96) f.toRem(96) 0.1fr 1fr f.toRem(96);
+            max-width: f.toRem(914);
+            grid-template-columns: f.toRem(96) 0.1fr 1fr;
             grid-template-rows: f.toRem(56) f.toRem(40) f.toRem(56);
         }
 
         @include m.breakpoint('xlarge'){
-            max-width: f.toRem(1440);
-            grid-template-columns: f.toRem(165) f.toRem(96) 0.1fr 1fr f.toRem(165);
+            margin: 0 f.toRem(165);
+            max-width: f.toRem(1110);
+            grid-template-columns: f.toRem(96) 0.1fr 1fr;
         }
     }
 
     &__name{
         display: none;
+        writing-mode: vertical-rl;
+        position: absolute;
+        left: f.toRem(-64);
+        top: 0;
+        color: v.$light-grey;
+        font-weight: 500;
+        letter-spacing: f.toRem(18);
 
         @include m.breakpoint('small'){
-            writing-mode: vertical-rl;
-            position: fixed;
             display: flex;
             align-items: center;
-            color: v.$light-grey;
             gap: f.toRem(48);
-            font-weight: 500;
-            letter-spacing: f.toRem(18);
-            left: f.toRem(38);
-            top: 0;
-    
             & div{
                 height: f.toRem(104);
                 width: f.toRem(1);
@@ -56,7 +63,7 @@
         }
 
         @include m.breakpoint('xlarge'){
-            left: f.toRem(63);
+            left: f.toRem(-110);
         }
     }
 
@@ -64,6 +71,7 @@
         line-height: 0;
         padding: f.toRem(32);
         display: flex;
+        width: 100%;
         justify-content: space-between;
         align-items: center;
         background-color: white;
@@ -73,17 +81,14 @@
         @include m.breakpoint('small'){
             padding: 0;
             margin: 0;
-            grid-column: 2/3;
+            grid-column: 1/2;
             grid-row: 2/3;
         }
-
-        @include m.breakpoint('xlarge'){
-        }
-        
     }
 
     &__logo {
         max-width: f.toRem(77);
+
     }
 
     &__burger {
@@ -95,23 +100,25 @@
 
 .nav{
     @include m.heading-s;
-    grid-column: 2/4;
-    grid-row: 4/5;
+    position: fixed;
+    top: f.toRem(96);
+    right: 0;
     transform: translateX(100vw);
     transition: all 0.5s ease-in-out;
 
     @include m.breakpoint('small'){
         @include m.body;
+        position: static;
         top: 0;
         z-index: 1;
-        grid-column: 4/5;
+        grid-column: 3/4;
         grid-row: 2/3;
-        transform: translateX(0vw);
+        transform: translateX(0);
         align-self: center;
     }
 
     &--active{
-        transform: translateX(0vw);
+        transform: translateX(0);
         transition: all 0.5s ease-in-out;
     }
 
@@ -120,9 +127,11 @@
         display: flex;
         flex-direction: column;
         gap: f.toRem(17);
+        width: 90vw;
         padding: f.toRem(39) 0 f.toRem(42) f.toRem(48);
 
         @include m.breakpoint('small'){
+            width: 100%;
             background-color: white;
             display: flex;
             flex-direction: row;
@@ -143,29 +152,29 @@
     }
 
     &__back{
-        grid-column: 1/4;
-        grid-row: 4/6;
+        position: fixed;
+        display: none;
+        top: f.toRem(96);
+        width: 100vw;
+        height: 100vh;
         background-color: black;
-        visibility: hidden;
         z-index: -1;
-        opacity: 0;
-        transition: all 0.5s ease-in-out;
+        opacity: 0.5;
+        transition: display 1s ease-in;
 
         @include m.breakpoint('small'){
             background-color: white;
             opacity: 1;
-            visibility: visible;
             grid-column: 1/6;
             grid-row: 1/4;
         }
     }
 
     &__back--active{
-        opacity: 0.5;
-        visibility: visible;
-        transition: all 0.5s ease-in-out;
+        display: block;
+        transition: display 1s ease-in-out;
         @include m.breakpoint('small'){
-            opacity: 1;
+            display: none;
         }
     }
 }
