@@ -5,7 +5,7 @@
 .connect{
     display: flex;
     flex-direction: column;
-    margin: f.toRem(200) f.toRem(32);
+    margin: f.toRem(73) f.toRem(32);
     @include m.breakpoint('small'){
         margin: f.toRem(200) f.toRem(96);
     }

@@ -3,68 +3,100 @@
 @use '../globals/mixins' as m;
 
 .banner{
-    display: grid;
-    height: f.toRem(560);
-    grid-template-columns: 1fr 8fr 1fr;
-    grid-template-rows: 1fr 3fr 1fr;
-    background: linear-gradient(0deg, rgb(0, 0, 0,0.5), rgb(0, 0, 0,0.75)), url(/src/assets/home/desktop/image-hero-paramour.jpg);
-    background-position: center center;
-    background-size: cover;
+    position: relative;
+    &__wrapper{
+        overflow: hidden;
+        @include m.breakpoint('small'){
+            margin: f.toRem(0) f.toRem(96);
+        }
+        @include m.breakpoint('xlarge'){
+            margin: f.toRem(0) f.toRem(0);
+        }
+    }
 
-    @include m.breakpoint('small'){
+    &__container{
+        display: flex;
+        transform: translateX(-0%);
+        transition: all 1s ease-in-out;
+    }
+    &__slide{
+        flex-shrink: 0;
+        width: 100%;
+        // height: f.toRem(720);
+        display: grid;
+        grid-template-columns: 0.1fr 1fr 0.1fr;
+        grid-template-rows: 0.1fr 1fr 0.1fr;
         align-items: center;
-        height: f.toRem(720);
-        margin: 0 f.toRem(98);
-    }
-    
-    @include m.breakpoint('xlarge'){
-        width: f.toRem(1110);
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-    }
-
-    @include m.breakpoint('xlarge'){
-        grid-template-columns: 1fr 4fr 1fr;
+        @include m.breakpoint('small'){
+            grid-template-columns: 0.15fr 1fr 0.15fr;
+            grid-template-rows: 0.15fr 1fr 0.15fr;
+        }
+        @include m.breakpoint('xlarge'){
+            grid-template-columns: 0.25fr 1fr 0.25fr;
+            grid-template-rows: 0.25fr 1fr 0.25fr;
+        }
     }
 
-    &__content{
+    &__top{
         grid-column: 2/3;
         grid-row: 2/3;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        color: white;
     }
 
     &__heading{
         color: white;
-        @include m.breakpoint('xlarge'){
-            max-width: f.toRem(544);
-        }
+        max-width: f.toRem(544);
     }
 
     &__para{
-        margin-top: f.toRem(11);
-        color: white;
-        @include m.breakpoint('xlarge'){
-            max-width: f.toRem(445);
-        }
+        margin-top: f.toRem(10);
+        margin-bottom: f.toRem(41);
+        max-width: f.toRem(445);
     }
 
-    &__btn{
-        margin-top: auto;
+    &__bottom{
+        position: relative;
+        line-height: 0;
+        z-index: -1;
+        grid-column: 1/4;
+        grid-row: 1/4;
+    }
+
+    &__overlay{
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0.25;
+    }
+
+    &__img{
+        height: f.toRem(560);
+        overflow: hidden;
         @include m.breakpoint('small'){
-            margin-top: f.toRem(41);
+            height: f.toRem(720);
         }
-    }
 
-    &__back{
-        
+        & img{
+            width: auto;
+            height: 100%;
+        }
     }
 
     &__select-btn{
         width: f.toRem(80);
         height: f.toRem(80);
+        background-color: white;
+        color: v.$medium-grey;
+        &--active{
+            width: f.toRem(80);
+            height: f.toRem(80);
+            background-color: v.$very-dark-blue;
+            color: white;
+        }
     }
 
     &__select{
@@ -75,6 +107,5 @@
         @include m.breakpoint('xlarge'){
             display: flex;
         }
-        
     }
 }

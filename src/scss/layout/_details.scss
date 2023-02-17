@@ -3,9 +3,11 @@
 @use '../globals/variables' as v;
 
 .details{
-    margin: f.toRem(96) f.toRem(32);
+    margin: f.toRem(0) f.toRem(32);
+    margin-top: f.toRem(100);
     @include m.breakpoint('small'){
-        margin: f.toRem(96) f.toRem(96);
+        margin: f.toRem(0) f.toRem(96);
+        margin-top: f.toRem(200);
     }
 
     @include m.breakpoint('xlarge'){

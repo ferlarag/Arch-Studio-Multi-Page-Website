@@ -3,7 +3,7 @@
 @use '../globals/variables' as v;
 
 .map{
-    margin-top: f.toRem(71);
+    margin-top: f.toRem(72);
     height: f.toRem(367);
     @include m.breakpoint('small'){
         height: f.toRem(560);

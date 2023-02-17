@@ -112,12 +112,25 @@ a, a:visited, a:active {
 .header {
   width: 100%;
   z-index: 2;
+  opacity: 1;
+  transition: all .3s ease-in-out;
   position: fixed;
   top: 0;
+  transform: translateY(0);
+}
+
+.header--hidden {
+  width: 100%;
+  z-index: 2;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  position: fixed;
+  top: 0;
+  transform: translateY(-100%);
 }
 
 @media (min-width: 48rem) {
-  .header {
+  .header--hidden, .header {
     background-color: #fff;
     justify-content: center;
     margin: 0;
@@ -373,79 +386,116 @@ main {
 }
 
 .banner {
-  height: 35rem;
-  background-color: #0000;
-  background-image: linear-gradient(0deg, #00000080, #000000bf), url("image-hero-paramour.de978a4a.jpg");
-  background-position: center;
-  background-repeat: repeat, repeat;
-  background-size: cover;
-  background-attachment: scroll, scroll;
-  background-origin: padding-box, padding-box;
-  background-clip: border-box, border-box;
-  grid-template-rows: 1fr 3fr 1fr;
-  grid-template-columns: 1fr 8fr 1fr;
+  position: relative;
+}
+
+.banner__wrapper {
+  overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .banner__wrapper {
+    margin: 0 6rem;
+  }
+}
+
+@media (min-width: 90rem) {
+  .banner__wrapper {
+    margin: 0;
+  }
+}
+
+.banner__container {
+  transition: all 1s ease-in-out;
+  display: flex;
+  transform: translateX(0%);
+}
+
+.banner__slide {
+  width: 100%;
+  flex-shrink: 0;
+  grid-template-rows: .1fr 1fr .1fr;
+  grid-template-columns: .1fr 1fr .1fr;
+  align-items: center;
   display: grid;
 }
 
 @media (min-width: 48rem) {
-  .banner {
-    height: 45rem;
-    align-items: center;
-    margin: 0 6.125rem;
+  .banner__slide {
+    grid-template-rows: .15fr 1fr .15fr;
+    grid-template-columns: .15fr 1fr .15fr;
   }
 }
 
 @media (min-width: 90rem) {
-  .banner {
-    width: 69.375rem;
-    grid-template-columns: 1fr 4fr 1fr;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+  .banner__slide {
+    grid-template-rows: .25fr 1fr .25fr;
+    grid-template-columns: .25fr 1fr .25fr;
   }
 }
 
-.banner__content {
-  flex-direction: column;
+.banner__top {
+  color: #fff;
   grid-area: 2 / 2 / 3 / 3;
-  align-items: flex-start;
-  display: flex;
 }
 
 .banner__heading {
   color: #fff;
-}
-
-@media (min-width: 90rem) {
-  .banner__heading {
-    max-width: 34rem;
-  }
+  max-width: 34rem;
 }
 
 .banner__para {
-  color: #fff;
-  margin-top: .6875rem;
+  max-width: 27.8125rem;
+  margin-top: .625rem;
+  margin-bottom: 2.5625rem;
 }
 
-@media (min-width: 90rem) {
-  .banner__para {
-    max-width: 27.8125rem;
-  }
+.banner__bottom {
+  z-index: -1;
+  grid-area: 1 / 1 / 4 / 4;
+  line-height: 0;
+  position: relative;
 }
 
-.banner__btn {
-  margin-top: auto;
+.banner__overlay {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: .25;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.banner__img {
+  height: 35rem;
+  overflow: hidden;
 }
 
 @media (min-width: 48rem) {
-  .banner__btn {
-    margin-top: 2.5625rem;
+  .banner__img {
+    height: 45rem;
   }
+}
+
+.banner__img img {
+  width: auto;
+  height: 100%;
 }
 
 .banner__select-btn {
   width: 5rem;
   height: 5rem;
+  color: #7d828f;
+  background-color: #fff;
+}
+
+.banner__select-btn--active {
+  width: 5rem;
+  height: 5rem;
+  color: #fff;
+  background-color: #1b1d23;
 }
 
 .banner__select {
@@ -1362,12 +1412,12 @@ main {
 }
 
 .details {
-  margin: 6rem 2rem;
+  margin: 6.25rem 2rem 0;
 }
 
 @media (min-width: 48rem) {
   .details {
-    margin: 6rem;
+    margin: 12.5rem 6rem 0;
   }
 }
 
@@ -1457,7 +1507,7 @@ main {
 
 .map {
   height: 22.9375rem;
-  margin-top: 4.4375rem;
+  margin-top: 4.5rem;
 }
 
 @media (min-width: 48rem) {
@@ -1477,7 +1527,7 @@ main {
 
 .connect {
   flex-direction: column;
-  margin: 12.5rem 2rem;
+  margin: 4.5625rem 2rem;
   display: flex;
 }
 
